@@ -412,7 +412,9 @@
                                 scrollTop: $('.wpuf-success').offset().top - 100
                             }, 'fast');
 
-                        } else {
+                        }
+
+                        if ( res.redirect_to !== '' ) {
                             window.location = res.redirect_to;
                         }
 
@@ -896,7 +898,7 @@
                     if ( 'word' === limit_type ) {
                         numWords = WP_User_Frontend.editorLimit.tinymce.getStats(ed).words - 1;
                     }
-                    
+
                     limit ? $('.mce-path-item.mce-last', ed.container).html( limit_label + numWords +'/'+limit):'';
 
                     if ( limit && numWords > limit ) {
@@ -921,7 +923,7 @@
                     content_length = self.val().length + 1;
 
                     if ( 'word' === limit_type ) {
-                        content_length = self.val().split(' ').length;   
+                        content_length = self.val().split(' ').length;
                     }
 
                 if ( limit && content_length > limit ) {
